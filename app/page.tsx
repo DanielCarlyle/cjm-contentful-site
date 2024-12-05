@@ -10,11 +10,33 @@ import { getAllPosts } from "@/lib/api";
 import { CMS_NAME, CMS_URL } from "@/lib/constants";
 
 function Intro() {
+
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-        Blog.
+      <a href="/">Christopher John Malanchen</a>
+      <br />
+      <span className="text-4xl md:text-6xl font-medium tracking-tighter leading-tight md:pr-8">Editor, Film &amp; Television</span>
+      <br />
+      <span className="text-2xl md:text-4xl font-light tracking-tighter leading-tight md:pr-8">DGC, Canadian Film Centre Editor Alumni</span>
       </h1>
+
+      <h2>REEL</h2> 
+      <section id="reel" className="flex items-center">
+      <div className="container mx-auto">
+        {/* Vimeo Video Container */}
+        <div className="relative" style={{ paddingTop: '56.25%' }}>
+        <iframe
+      src="https://www.youtube.com/watch?v=gfU1iZnjRZM"
+      frameborder="0"
+      allowfullscreen
+    />
+        </div>
+      </div>
+    </section>
+
+
+
       <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
         A statically generated blog example using{" "}
         <a
@@ -34,6 +56,7 @@ function Intro() {
       </h2>
     </section>
   );
+  
 }
 
 function HeroPost({
