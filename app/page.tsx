@@ -9,12 +9,19 @@ import MoreStories from "./more-stories";
 import { getAllPosts } from "@/lib/api";
 import { CMS_NAME, CMS_URL } from "@/lib/constants";
 
+
 function Intro() {
 
   return (
+
+    
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
       <a href="/">Christopher John Malanchen</a>
+      <i className="fab fa-imdb fa-5x"></i>
+  <i className="fab fa-vimeo-v fa-5x"></i>
+  <i className="fab fa-linkedin fa-5x"></i>
+  <i className="fa fa-envelope fa-5x"></i>
       <br />
       <span className="text-4xl md:text-6xl font-medium tracking-tighter leading-tight md:pr-8">Editor, Film &amp; Television</span>
       <br />

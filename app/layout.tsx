@@ -15,6 +15,59 @@ const inter = Inter({
 
 function Footer() {
   return (
+
+    <footer className="bg-gray-800 text-white py-8">
+    <div className="container mx-auto px-4">
+      <div className="flex justify-center">
+        <div className="footer-menu">
+          <ul className="social-icons flex space-x-8 justify-center">
+            <li>
+              <a
+                href="https://www.imdb.com/name/nm3040932/?ref_=fn_al_nm_7"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="IMDB"
+              >
+                <i className="fab fa-imdb fa-5x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://vimeo.com/cjm"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Vimeo"
+              >
+                <i className="fab fa-vimeo-v fa-5x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/christopher-john-malanchen-21629353/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <i className="fab fa-linkedin fa-5x" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:cjmalanchen@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Email"
+              >
+                <i className="fa fa-envelope fa-5x" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+   /*
     <footer className="bg-accent-1 border-t border-accent-2">
       <div className="container mx-auto px-5">
         <div className="py-28 flex flex-col lg:flex-row items-center">
@@ -38,6 +91,7 @@ function Footer() {
         </div>
       </div>
     </footer>
+    */
   );
 }
 
