@@ -21,22 +21,6 @@ function Intro() {
       <span className="text-2xl md:text-4xl font-light tracking-tighter leading-tight md:pr-8">DGC, Canadian Film Centre Editor Alumni</span>
       </h1>
 
-      <h2>REEL</h2> 
-      <section id="reel" className="flex items-center">
-      <div className="container mx-auto">
-        {/* Vimeo Video Container */}
-        <div className="relative" style={{ paddingTop: '56.25%' }}>
-        <iframe
-      src="https://www.youtube.com/watch?v=gfU1iZnjRZM"
-      frameborder="0"
-      allowfullscreen
-    />
-        </div>
-      </div>
-    </section>
-
-
-
       <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
         A statically generated blog example using{" "}
         <a
