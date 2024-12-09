@@ -6,27 +6,45 @@ import CoverImage from "./cover-image";
 import Avatar from "./avatar";
 import MoreStories from "./more-stories";
 
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts, getAbout } from "@/lib/api";
 import { CMS_NAME, CMS_URL } from "@/lib/constants";
 
-
-function Intro() {
-
+// Define the Intro component
+function Intro({ aboutData }: { aboutData: any }) {
   return (
-
-    
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
       <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8">
-      <a href="/">Christopher John Malanchen</a>
-      <i className="fab fa-imdb fa-5x"></i>
-  <i className="fab fa-vimeo-v fa-5x"></i>
-  <i className="fab fa-linkedin fa-5x"></i>
-  <i className="fa fa-envelope fa-5x"></i>
-      <br />
-      <span className="text-4xl md:text-6xl font-medium tracking-tighter leading-tight md:pr-8">Editor, Film &amp; Television</span>
-      <br />
-      <span className="text-2xl md:text-4xl font-light tracking-tighter leading-tight md:pr-8">DGC, Canadian Film Centre Editor Alumni</span>
+        <a href="/">Christopher John Malanchen</a>
+        <i className="fab fa-imdb fa-5x"></i>
+        <i className="fab fa-vimeo-v fa-5x"></i>
+        <i className="fab fa-linkedin fa-5x"></i>
+        <i className="fa fa-envelope fa-5x"></i>
+        <br />
+        <span className="text-4xl md:text-6xl font-medium tracking-tighter leading-tight md:pr-8">
+          Editor, Film &amp; Television
+        </span>
+        <br />
+        <span className="text-2xl md:text-4xl font-light tracking-tighter leading-tight md:pr-8">
+          DGC, Canadian Film Centre Editor Alumni
+        </span>
       </h1>
+
+      <div className="container mx-auto px-5">
+        <section>
+          {aboutData ? (
+            <>
+              <h1>{aboutData.title}</h1>
+              <h2>{aboutData.description}</h2>
+              <img
+                src={aboutData.image?.url}
+                alt={aboutData.image?.description || "About image"}
+              />
+            </>
+          ) : (
+            <p>Loading...</p> // Add a loading state if data isn't ready
+          )}
+        </section>
+      </div>
 
       <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
         A statically generated blog example using{" "}
@@ -47,9 +65,9 @@ function Intro() {
       </h2>
     </section>
   );
-  
 }
 
+// Define the HeroPost component
 function HeroPost({
   title,
   coverImage,
@@ -90,15 +108,17 @@ function HeroPost({
   );
 }
 
+// Main page component
 export default async function Page() {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
+  const aboutData = await getAbout(); // Fetch About data
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
 
   return (
     <div className="container mx-auto px-5">
-      <Intro />
+      <Intro aboutData={aboutData} /> {/* Pass aboutData to Intro */}
       {heroPost && (
         <HeroPost
           title={heroPost.title}
