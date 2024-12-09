@@ -8,8 +8,10 @@ import MoreStories from "./more-stories";
 
 import { getAllPosts, getAbout } from "@/lib/api";
 import { CMS_NAME, CMS_URL } from "@/lib/constants";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 // Define the Intro component
+
 function Intro({ aboutData }: { aboutData: any }) {
   return (
     <section className="flex-col md:flex-row flex items-center md:justify-between mt-16 mb-16 md:mb-12">
@@ -34,14 +36,16 @@ function Intro({ aboutData }: { aboutData: any }) {
           {aboutData ? (
             <>
               <h1>{aboutData.title}</h1>
-              <h2>{aboutData.description}</h2>
               <img
                 src={aboutData.image?.url}
                 alt={aboutData.image?.description || "About image"}
               />
+              <div>
+                {documentToReactComponents(aboutData.descriptionRich?.json)}
+              </div>
             </>
           ) : (
-            <p>Loading...</p> // Add a loading state if data isn't ready
+            <p>Loading...</p>
           )}
         </section>
       </div>
@@ -56,16 +60,17 @@ function Intro({ aboutData }: { aboutData: any }) {
         </a>{" "}
         and{" "}
         <a
-          href={CMS_URL}
+          href="https://www.contentful.com/"
           className="underline hover:text-success duration-200 transition-colors"
         >
-          {CMS_NAME}
+          Contentful
         </a>
         .
       </h2>
     </section>
   );
 }
+
 
 // Define the HeroPost component
 function HeroPost({

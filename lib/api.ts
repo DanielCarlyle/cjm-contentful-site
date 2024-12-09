@@ -6,6 +6,9 @@ const ABOUT_GRAPHQL_FIELDS = `
       description
     }
     description
+    descriptionRich {
+      json
+    }
     accoladesCollection {
       items {
         url
@@ -14,6 +17,7 @@ const ABOUT_GRAPHQL_FIELDS = `
     }
   }
 `;
+
 
 const POST_GRAPHQL_FIELDS = `
   slug
